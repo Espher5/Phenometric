@@ -14,7 +14,16 @@ load()
 
 def read_words(text):
     tokens = word_tokenize(text)
-    words = [word for token in tokens for word in segment(token)]
+    words = list()
+    for token in tokens:
+        if len(token) > 100:
+            index = 5
+            while index < len(token):
+                words += segment(token[index - 5: index + 100])
+                index += 100
+        else:
+            for word in segment(token):
+                words.append(word)
 
     stemmer = WordNetLemmatizer()
     stems = set()
@@ -25,7 +34,7 @@ def read_words(text):
 
 
 def extract_features(path):
-    with open(path, 'r') as file:
+    with open(path, 'r', encoding='utf-8') as file:
         data = file.read().replace('\n', '')
         test_words = read_words(data)
     return list(test_words)
