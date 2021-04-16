@@ -1,8 +1,0 @@
-ret
-/testFile
-mFsShell
-Assert
-cat
-catNotExist
-run
-assertEquals

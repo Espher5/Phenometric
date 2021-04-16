@@ -1,4 +1,0 @@
-@Test
-public void persistParallelFilesGtParallelism() throws Exception {
-    persistParallel(2, 1);
-}

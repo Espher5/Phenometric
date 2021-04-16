@@ -1,7 +1,0 @@
-createHdfsSubject
-IMPERSONATION_GROUPS_CONFIG
-IMPERSONATION_USERS_CONFIG
-checkCreateFile
-HDFS_USER
-impersonationUsersAllowedGroupsDenied
-wrong_group

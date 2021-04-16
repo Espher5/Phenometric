@@ -1,8 +1,0 @@
-NO_PARAMS
-call
-getInfo
-mPort
-getEndpoint
-AlluxioJobMasterRestServiceHandler
-HttpMethod
-mHostname

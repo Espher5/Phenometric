@@ -1,7 +1,0 @@
-@Test
-public void removeCommandUnknownOption() {
-    int ret = mFsAdminShell.run("pathConf", "remove", "--unknown");
-    Assert.assertEquals(-1, ret);
-    String output = mOutput.toString();
-    Assert.assertEquals(RemoveCommand.description(), lastLine(output));
-}

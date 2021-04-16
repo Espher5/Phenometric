@@ -1,6 +1,0 @@
-createHdfsSubject
-IMPERSONATION_GROUPS_CONFIG
-impersonationHdfsGroupAllowed
-HDFS_GROUP2
-checkCreateFile
-HDFS_USER

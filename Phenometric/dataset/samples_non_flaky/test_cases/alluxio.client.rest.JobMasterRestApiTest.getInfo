@@ -1,4 +1,0 @@
-@Test
-public void getInfo() throws Exception {
-    new TestCase(mHostname, mPort, getEndpoint(AlluxioJobMasterRestServiceHandler.GET_INFO), NO_PARAMS, HttpMethod.GET, null).call();
-}

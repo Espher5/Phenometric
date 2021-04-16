@@ -1,5 +1,0 @@
-@Test
-public void testToProto() throws IOException {
-    TaskInfo taskInfo = createRandom();
-    assertEquals(taskInfo, new TaskInfo(taskInfo.toProto()));
-}

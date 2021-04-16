@@ -1,7 +1,0 @@
-@Test
-public void unknownSubCommand() {
-    int ret = mFsAdminShell.run("pathConf", "unknown");
-    Assert.assertEquals(-1, ret);
-    String output = mOutput.toString();
-    Assert.assertEquals(PathConfCommand.description(), lastLine(output));
-}

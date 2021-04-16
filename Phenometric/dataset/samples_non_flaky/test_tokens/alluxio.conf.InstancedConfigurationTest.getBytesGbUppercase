@@ -1,8 +1,0 @@
-getBytesGbUppercase
-set
-mConfiguration
-Constants
-assertEquals
-10GB
-PropertyKey
-getBytes

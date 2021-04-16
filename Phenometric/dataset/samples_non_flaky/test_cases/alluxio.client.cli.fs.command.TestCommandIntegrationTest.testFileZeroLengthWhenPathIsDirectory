@@ -1,6 +1,0 @@
-@Test
-public void testFileZeroLengthWhenPathIsDirectory() throws Exception {
-    mFileSystem.createDirectory(new AlluxioURI("/testDir"));
-    int ret = mFsShell.run("test", "-z", "/testDir");
-    Assert.assertEquals(1, ret);
-}

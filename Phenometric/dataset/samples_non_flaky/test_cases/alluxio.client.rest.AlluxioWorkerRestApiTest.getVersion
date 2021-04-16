@@ -1,4 +1,0 @@
-@Test
-public void getVersion() throws Exception {
-    Assert.assertEquals(RuntimeConstants.VERSION, getInfo().getVersion());
-}

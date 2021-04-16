@@ -1,4 +1,12 @@
 def loc(path):
     with open(path, 'r') as file:
-        data = file.read().split('\n')
-        return len(data)
+        count = 0
+        lines = file.readlines()
+        for line in lines:
+            for word in line.split():
+                if '//' in word or '/*' in word or '*/' in word or '*' in word:
+                    break
+                else:
+                    count += 1
+                    break
+        return count

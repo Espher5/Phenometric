@@ -1,7 +1,0 @@
-@Test
-public void getAddress() throws Exception {
-    UserState userState = UserState.Factory.create(sConf);
-    try (JobContext context = JobContext.create(sConf, userState)) {
-        assertEquals("host2", context.getJobMasterAddress().getHostName());
-    }
-}

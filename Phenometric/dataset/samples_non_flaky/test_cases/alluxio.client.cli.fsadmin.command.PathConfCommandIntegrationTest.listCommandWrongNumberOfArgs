@@ -1,7 +1,0 @@
-@Test
-public void listCommandWrongNumberOfArgs() {
-    int ret = mFsAdminShell.run("pathConf", "list", "1");
-    Assert.assertEquals(-1, ret);
-    String output = mOutput.toString();
-    Assert.assertEquals(ListCommand.description(), lastLine(output));
-}

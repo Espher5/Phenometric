@@ -1,5 +1,0 @@
-@Test
-@LocalAlluxioClusterResource.Config(confParams = { IMPERSONATION_GROUPS_CONFIG, HDFS_GROUP2 })
-public void impersonationHdfsGroupAllowed() throws Exception {
-    checkCreateFile(createHdfsSubject(), HDFS_USER);
-}

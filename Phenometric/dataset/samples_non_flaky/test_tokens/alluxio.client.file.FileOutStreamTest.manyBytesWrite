@@ -1,7 +1,0 @@
-manyBytesWrite
-mTestStream
-BLOCK_LENGTH
-bytesToWrite
-write
-close
-verifyIncreasingBytesWritten

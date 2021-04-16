@@ -1,7 +1,0 @@
-MEM
-size
-addWorker
-mInfo
-getWorkers
-assertEquals
-removeWorker

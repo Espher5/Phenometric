@@ -1,8 +1,0 @@
-fail
-bucket/non-existent-object
-Assert
- expected
-getObjectRestCall
-get non-existent object should fail
-objectKey
-getNonExistentObject

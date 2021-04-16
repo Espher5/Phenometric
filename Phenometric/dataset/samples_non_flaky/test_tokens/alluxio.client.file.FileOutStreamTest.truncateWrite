@@ -1,6 +1,0 @@
-mTestStream
-truncateWrite
-write
- Only writes the lowest byte
-close
-verifyIncreasingBytesWritten

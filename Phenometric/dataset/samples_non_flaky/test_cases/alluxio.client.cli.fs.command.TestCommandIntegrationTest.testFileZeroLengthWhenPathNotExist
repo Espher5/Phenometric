@@ -1,5 +1,0 @@
-@Test
-public void testFileZeroLengthWhenPathNotExist() throws Exception {
-    int ret = mFsShell.run("test", "-z", "/testPath");
-    Assert.assertEquals(1, ret);
-}

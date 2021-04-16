@@ -1,6 +1,0 @@
-checkPathConfBeforeUpdate
-triggerAndWaitSync
-checkPathConfAfterUpdate
-pathConfUpdate
-checkHash
-updatePathConf

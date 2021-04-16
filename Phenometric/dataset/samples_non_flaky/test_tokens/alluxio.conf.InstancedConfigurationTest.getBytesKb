@@ -1,8 +1,0 @@
-getBytesKb
-10kb
-set
-mConfiguration
-Constants
-assertEquals
-PropertyKey
-getBytes

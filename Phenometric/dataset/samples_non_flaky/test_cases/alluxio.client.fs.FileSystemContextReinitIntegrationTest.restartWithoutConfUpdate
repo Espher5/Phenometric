@@ -1,6 +1,0 @@
-@Test
-public void restartWithoutConfUpdate() throws Exception {
-    restartMasters();
-    triggerAndWaitSync();
-    checkHash(false, false);
-}

@@ -1,5 +1,0 @@
-@Test
-public void headNotExit() throws Exception {
-    int ret = mFsShell.run("head", "/testFile");
-    Assert.assertEquals(-1, ret);
-}

@@ -1,4 +1,0 @@
-@Test
-public void getTierPaths() throws Exception {
-    Assert.assertTrue(getInfo().getTierPaths().containsKey("MEM"));
-}

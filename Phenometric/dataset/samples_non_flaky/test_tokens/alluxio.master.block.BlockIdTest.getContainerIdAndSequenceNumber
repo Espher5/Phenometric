@@ -1,6 +1,0 @@
-getContainerId
-getSequenceNumber
-BlockId
-MAX_SEQUENCE_NUMBER
-assertEquals
-getContainerIdAndSequenceNumber

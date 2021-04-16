@@ -1,4 +1,0 @@
-@Test
-public void getStartTimeMs() throws Exception {
-    Assert.assertTrue(getInfo().getStartTimeMs() > 0);
-}

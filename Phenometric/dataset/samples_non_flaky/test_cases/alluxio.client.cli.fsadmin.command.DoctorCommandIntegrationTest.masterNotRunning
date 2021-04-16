@@ -1,6 +1,0 @@
-@Test
-public void masterNotRunning() throws Exception {
-    mLocalAlluxioCluster.stopMasters();
-    int ret = mFsAdminShell.run("doctor");
-    Assert.assertNotEquals(0, ret);
-}

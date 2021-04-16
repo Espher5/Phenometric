@@ -1,4 +1,0 @@
-@Test
-public void parseMessage() throws Exception {
-    validateParse(buildResponse("test".getBytes()));
-}

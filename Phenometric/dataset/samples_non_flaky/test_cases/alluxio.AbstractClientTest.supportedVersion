@@ -1,6 +1,0 @@
-@Test
-public void supportedVersion() throws Exception {
-    final AbstractClient client = new BaseTestClient(1);
-    client.checkVersion(1);
-    client.close();
-}

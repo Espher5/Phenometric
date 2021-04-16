@@ -1,4 +1,0 @@
-@Test
-public void propertyTestModeEqualsTrue() throws Exception {
-    assertTrue(mConfiguration.getBoolean(PropertyKey.TEST_MODE));
-}

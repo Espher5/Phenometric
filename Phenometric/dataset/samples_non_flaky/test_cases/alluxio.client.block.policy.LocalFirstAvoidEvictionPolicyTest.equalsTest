@@ -1,4 +1,0 @@
-@Test
-public void equalsTest() throws Exception {
-    new EqualsTester().addEqualityGroup(new LocalFirstAvoidEvictionPolicy(mConf), new LocalFirstAvoidEvictionPolicy(mConf)).testEquals();
-}

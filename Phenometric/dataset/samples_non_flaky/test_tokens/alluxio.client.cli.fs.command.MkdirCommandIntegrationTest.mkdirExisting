@@ -1,7 +1,0 @@
-mFsShell
-Assert
-mkdirExisting
-run
-assertEquals
-/testFile1
-mkdir

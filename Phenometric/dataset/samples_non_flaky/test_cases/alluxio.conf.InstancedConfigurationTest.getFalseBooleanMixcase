@@ -1,5 +1,0 @@
-@Test
-public void getFalseBooleanMixcase() {
-    mConfiguration.set(PropertyKey.WEB_THREADS, "fAlSe");
-    assertFalse(mConfiguration.getBoolean(PropertyKey.WEB_THREADS));
-}

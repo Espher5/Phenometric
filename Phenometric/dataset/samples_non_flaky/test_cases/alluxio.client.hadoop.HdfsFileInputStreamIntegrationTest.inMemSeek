@@ -1,4 +1,0 @@
-@Test
-public void inMemSeek() throws Exception {
-    seekTest(mInMemInputStream);
-}

@@ -1,6 +1,0 @@
-10b
-set
-mConfiguration
-assertEquals
-PropertyKey
-getBytes

@@ -1,8 +1,0 @@
-fail
-getNonExistentObjectMetadata
-bucket/non-existent-object
-get metadata of non-existent object should fail
-Assert
- expected
-getObjectMetadataRestCall
-objectKey

@@ -1,7 +1,0 @@
-mClient
-create
-assertEquals
-writer
-verifyWriteRequests
-writeEmptyFile
-checksumActual

@@ -1,4 +1,0 @@
-@Test
-public void concurrentListFiles() throws Exception {
-    runLoadMetadata(null, false, true, true);
-}

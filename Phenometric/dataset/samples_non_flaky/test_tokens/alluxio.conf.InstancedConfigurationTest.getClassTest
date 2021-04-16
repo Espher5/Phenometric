@@ -1,8 +1,0 @@
-getClass
-set
-mConfiguration
-assertEquals
-java.lang.String
-getClassTest
-PropertyKey
- The name getClass is already reserved.
