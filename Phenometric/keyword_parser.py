@@ -14,13 +14,15 @@ JAVA_KEYWORDS = ['abstract', 'assert', 'boolean', 'break',
 
 def parse_java_keywords(path):
     keywords = dict()
+    for k in JAVA_KEYWORDS:
+        keywords[k] = 0
     keyword_count = 0
     with open(path, 'r', encoding='utf8') as f:
         lines = f.readlines()
         for line in lines:
             for word in line.split():
                 # removing some characters from the word
-                split_words = re.split('\'|&|=|!|\?|.|,|;|:|\(|\)|[|]|{​​|}​​', word)
+                split_words = re.split('\'|&|=|!|\?|,|;|:|\(|\)|[|]|{​​|}​​', word)
                 # checking if the word is a comment or a string
                 if '//' in word or '/*' in word or '*/' in word or '"' in word:
                     break
