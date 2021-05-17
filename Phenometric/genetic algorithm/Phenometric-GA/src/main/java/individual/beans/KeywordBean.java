@@ -27,9 +27,9 @@ public class KeywordBean {
 
     @Override
     public String toString() {
-        return "KeywordBean{" +
+        return "\nKeywordBean{" +
                 "name=" + name +
-                "count=" + count +
+                ", count=" + count +
                 "}";
     }
 }

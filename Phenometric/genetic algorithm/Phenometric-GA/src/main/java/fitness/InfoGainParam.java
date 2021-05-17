@@ -1,5 +1,9 @@
 package fitness;
 
+
+/**
+ * Bean-like class to contain the attributes for the parameters of the fitness function
+ */
 public class InfoGainParam {
     private String name;
     private int position;

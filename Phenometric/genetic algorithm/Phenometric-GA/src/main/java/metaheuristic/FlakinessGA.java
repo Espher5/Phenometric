@@ -16,7 +16,7 @@ public class FlakinessGA<T extends Individual> extends GenerationalGA<T> {
         this.addGeneration(firstGeneration);
 
         this.getFitnessFunction().evaluate(firstGeneration);
-        System.out.println("Gen 1) " + firstGeneration.getAverageFitness() + " (CurrentAvg)");
+        System.out.println("Gen 1) " + "(Average fitness: " + firstGeneration.getAverageFitness() + ") (CurrentAvg)");
         int currentIteration = 1;
         do {
             Population<T> currentPopulation = getLastGeneration();
@@ -28,8 +28,8 @@ public class FlakinessGA<T extends Individual> extends GenerationalGA<T> {
             this.addGeneration(newGeneration);
             currentIteration++;
             System.out.println("Gen " + currentIteration + ") " +
-                    currentPopulation.getAverageFitness() +
-                    " (Best: " + currentPopulation.getBestIndividual().getFitness() + ")");
+                    "(Average fitness: " + currentPopulation.getAverageFitness() +
+                    ") (Best individual: " + currentPopulation.getBestIndividual().getFitness() + ")");
         } while (!getStoppingCondition().checkStop(this));
         return new GAResults<>(this);
     }

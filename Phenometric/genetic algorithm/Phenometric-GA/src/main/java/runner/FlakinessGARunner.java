@@ -1,13 +1,12 @@
 package runner;
 
-import fitness.FitnessFunction;
 import fitness.InfoGainFunction;
 import individual.TestCaseIndividual;
 import individual.generator.IndividualGenerator;
 import individual.generator.TestCaseIndividualGenerator;
 import metaheuristic.FlakinessGA;
 import metaheuristic.GenerationalGA;
-import operator.crossover.SinglePointCrossover;
+import operator.crossover.DoublePointCrossover;
 import operator.mutation.TokenFlipMutation;
 import operator.selection.RouletteWheelSelection;
 import population.initializer.PopulationInitializer;
@@ -34,7 +33,7 @@ public class FlakinessGARunner extends GARunner {
         IndividualGenerator<TestCaseIndividual> individualGenerator = new TestCaseIndividualGenerator();
         PopulationInitializer<TestCaseIndividual> populationInitializer = new UpperBoundedPopulationInitializer<>(numberOfIndividuals, individualGenerator);
         RouletteWheelSelection<TestCaseIndividual> selectionOperator = new RouletteWheelSelection<>(random);
-        SinglePointCrossover<TestCaseIndividual> crossoverOperator = new SinglePointCrossover<>(crossoverProbability, random);
+        DoublePointCrossover<TestCaseIndividual> crossoverOperator = new DoublePointCrossover<>(crossoverProbability, random);
         TokenFlipMutation<TestCaseIndividual> mutationOperator = new TokenFlipMutation<>(mutationProbability, random);
         MultipleStoppingCondition stoppingCondition = new MultipleStoppingCondition();
         stoppingCondition.add(new MaxIterationsStoppingCondition(maxIterations));

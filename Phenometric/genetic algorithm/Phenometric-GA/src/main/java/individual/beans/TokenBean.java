@@ -27,9 +27,9 @@ public class TokenBean {
 
     @Override
     public String toString() {
-        return "TokenBean{" +
+        return "\nTokenBean{" +
                 "name=" + name +
-                "presence=" + presence +
+                ", presence=" + presence +
                 "}";
     }
 }
