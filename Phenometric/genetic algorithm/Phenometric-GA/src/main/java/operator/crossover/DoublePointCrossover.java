@@ -47,6 +47,10 @@ public class DoublePointCrossover<T extends EncodedIndividual<IndividualEncoding
             keywords2.remove(i + 1);
             keywords1.remove(i + 1);
         }
+        int oldKeywordCount1 = offspringEncoding1.getKeywordCount();
+        int oldKeywordCount2 = offspringEncoding2.getKeywordCount();
+        offspringEncoding1.setKeywordCount(oldKeywordCount1 - keywordCount1 + keywordCount2);
+        offspringEncoding2.setKeywordCount(oldKeywordCount2 - keywordCount2 + keywordCount1);
 
         // Splits the tokens
         int tokenSplitPoint = getRandom().nextInt(firstEncoding.getTokens().size() - 1) + 1;
@@ -69,8 +73,6 @@ public class DoublePointCrossover<T extends EncodedIndividual<IndividualEncoding
         loc2 = loc2 - (loc2 * splitPercentage / 100) + (loc1 * splitPercentage / 100);
         offspringEncoding1.setLoc(loc1);
         offspringEncoding2.setLoc(loc2);
-        offspringEncoding1.setKeywordCount(keywordCount1);
-        offspringEncoding2.setKeywordCount(keywordCount2);
 
         return new Pairing(offspring1, offspring2);
     }
