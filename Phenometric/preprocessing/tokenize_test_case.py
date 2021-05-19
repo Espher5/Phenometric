@@ -9,18 +9,12 @@ def tokenize(path):
     body, stderr = process.communicate()
     tokens = body.decode('windows-1252').split('\r\n')
     all_tokens = list()
+
     for token in tokens:
         all_tokens.append(token.lower())
-        split_tokens = re.findall('[A-Z][^A-Z]*', token)
-        for split_token in split_tokens:
-            if len(split_token) >= 2:
-                all_tokens.append(split_token.lower())
-        first_lowercase = re.findall('[a-z]+[A-Z]?', token)
-        if first_lowercase and len(first_lowercase[0]) > 2 and first_lowercase[0] not in all_tokens:
-            all_tokens.append(first_lowercase[0][:-1])
-    try:
+        matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', token)
+        for m in matches:
+            all_tokens.append(m.group(0).lower())
+    if '' in all_tokens:
         all_tokens.remove('')
-        all_tokens.remove('"')
-    except ValueError:
-        pass
-    return all_tokens
+    return list(all_tokens)

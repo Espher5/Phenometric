@@ -1,6 +1,5 @@
 import csv
 import os
-from feature_extractor import extract_features
 from loc import loc
 from keyword_parser import parse_java_keywords, JAVA_KEYWORDS
 from tokenize_test_case import tokenize
@@ -30,21 +29,19 @@ def main():
     for test_case in test_cases.keys():
         print('{} - Processing file: {}'.format(test_id, test_case))
         file_path = flaky_test_dir if test_cases[test_case] == 'flaky' else non_flaky_test_dir
-        token_path = flaky_token_dir if test_cases[test_case] == 'flaky' else non_flaky_token_dir
 
-        features = extract_features(os.path.join(token_path, test_case))
         tokens = tokenize(os.path.join(file_path, test_case))
-        all_features = tokens + features
-        tokens_str = ''
-        for token in all_features:
-            tokens_str += '  ' + str(token).replace('\n', '')
-
+        parsed_tokens_str = ''
+        for i in range(len(tokens)):
+            if i == len(tokens) - 1:
+                parsed_tokens_str += tokens[i]
+            else:
+                parsed_tokens_str += tokens[i] + '  '
         test_loc = loc(os.path.join(file_path, test_case))
-
         java_keywords, keyword_count = parse_java_keywords(os.path.join(file_path, test_case))
         csv_writer.writerow(
             [test_id] +
-            [tokens_str] +
+            [parsed_tokens_str] +
             [test_loc] +
             [keyword for keyword in java_keywords.values()] +
             [keyword_count] +
