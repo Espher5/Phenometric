@@ -17,7 +17,8 @@ public class TokenFlipMutation<T extends EncodedIndividual<IndividualEncodingBea
     protected T mutate(T individual) throws CloneNotSupportedException {
         IndividualEncodingBean individualEncoding = individual.getEncoding();
         List<TokenBean> tokens = individualEncoding.getTokens();
-        int numToFlip = tokens.size() * 5 / 100;
+
+        int numToFlip = tokens.size() * 20 / 100;
 
         for(int i = 0; i < numToFlip; i++) {
             int index = getRandom().nextInt(tokens.size());
@@ -28,10 +29,9 @@ public class TokenFlipMutation<T extends EncodedIndividual<IndividualEncodingBea
                 tb.setPresence(0);
             }
             tokens.add(index, tb);
-            tokens.remove(i + 1);
+            tokens.remove(index + 1);
         }
 
-        T mutatedIndividual = (T) individual.clone();
-        return mutatedIndividual;
+        return (T) individual.clone();
     }
 }

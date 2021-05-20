@@ -5,6 +5,7 @@ import individual.beans.IndividualEncodingBean;
 import individual.beans.KeywordBean;
 import individual.beans.TokenBean;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -54,19 +55,25 @@ public class DoublePointCrossover<T extends EncodedIndividual<IndividualEncoding
 
         // Splits the tokens
         int tokenSplitPoint = getRandom().nextInt(firstEncoding.getTokens().size() - 1) + 1;
-        List<TokenBean> tokens1 = offspringEncoding1.getTokens();
-        List<TokenBean> tokens2 = offspringEncoding2.getTokens();
-        for(int i = tokenSplitPoint; i < tokens1.size(); i++) {
-            tokens1.add(i, tokens2.get(i));
-            tokens2.add(i, tokens1.get(i + 1));
-            tokens2.remove(i + 1);
-            tokens1.remove(i + 1);
+        List<TokenBean> oldTokens1 = offspringEncoding1.getTokens();
+        List<TokenBean> newTokens1 = new ArrayList<>();
+        List<TokenBean> oldTokens2 = offspringEncoding2.getTokens();
+        List<TokenBean> newTokens2 = new ArrayList<>();
+
+        for(int i = 0; i < tokenSplitPoint; i++) {
+            newTokens1.add(oldTokens1.get(i));
+            newTokens2.add(oldTokens2.get(i));
         }
-        offspringEncoding1.setTokens(tokens1);
-        offspringEncoding2.setTokens(tokens2);
+        for(int i = tokenSplitPoint; i < oldTokens1.size(); i++) {
+            newTokens1.add(i, oldTokens2.get(i));
+            newTokens2.add(i, oldTokens1.get(i));
+        }
+
+        offspringEncoding1.setTokens(newTokens1);
+        offspringEncoding2.setTokens(newTokens2);
 
         // Calculates the percentage of own tokens removed from each individual and updates the loc
-        int splitPercentage =  (tokens1.size() - tokenSplitPoint) * 100 / tokens1.size();
+        int splitPercentage =  (oldTokens1.size() - tokenSplitPoint) * 100 / oldTokens1.size();
         int loc1 = offspringEncoding1.getLoc();
         int loc2 = offspringEncoding2.getLoc();
         loc1 = loc1 - (loc1 * splitPercentage / 100) + (loc2 * splitPercentage / 100);

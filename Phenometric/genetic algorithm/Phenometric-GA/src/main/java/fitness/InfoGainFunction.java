@@ -7,6 +7,7 @@ import individual.beans.TokenBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * The idea behind this fitness function is to compute the fitness score based on the presence
@@ -23,10 +24,12 @@ public class InfoGainFunction extends FitnessFunction<TestCaseIndividual> {
     private static final double THROWS_INFOGAIN = 0.0874;
     private static final int THROWS_RANK = 15;
     private final List<InfoGainParam> params;
+    private final Random random;
 
     public InfoGainFunction() {
         super(true);
         params = initParameters();
+        this.random = new Random();
     }
 
     public void evaluate(TestCaseIndividual individual) {
@@ -44,6 +47,12 @@ public class InfoGainFunction extends FitnessFunction<TestCaseIndividual> {
             for(InfoGainParam param : params) {
                 if(tb.getName().equals(param.getName()) && tb.getPresence() == 1) {
                     fitness += param.getInfogain() * param.getOccurrences() / param.getPosition();
+                }
+                else if(tb.getPresence() == 1){
+                    double rangeMin = 0.001;
+                    double rangeMax = 0.003;
+                    fitness += (rangeMax - rangeMin) * random.nextDouble()
+                            * (random.nextInt(150) + 1) / (random.nextInt(50) + 1);
                 }
             }
         }
