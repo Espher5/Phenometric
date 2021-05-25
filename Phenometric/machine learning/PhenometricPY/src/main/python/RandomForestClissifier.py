@@ -20,13 +20,16 @@ clf.fit(X_train,y_train)
 y_pred=clf.predict(X_test)
 
 
-from sklearn.metrics import accuracy_score, roc_auc_score, precision_score, f1_score, recall_score
+from sklearn.metrics import accuracy_score, roc_auc_score, precision_score, f1_score, recall_score, matthews_corrcoef
 # accuracy: (tp + tn) / (p + n)
 acc=(accuracy_score(y_test, y_pred))
 print("Accuracy score: %f" % acc)
 
 auc=(roc_auc_score(y_test, y_pred))
 print("AUC: %f" % auc)
+
+mcc=(matthews_corrcoef(y_test, y_pred))
+print("MCC: %f" % mcc)
 
 # precision tp / (tp + fp)
 pre=(precision_score(y_test, y_pred))
