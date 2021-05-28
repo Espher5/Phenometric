@@ -11,7 +11,6 @@ public class UpperBoundedPopulationInitializer<T extends Individual> extends Pop
     private final int numberOfIndividuals;
     private final IndividualGenerator<T> individualGenerator;
 
-    // The given integer will be set as the maximum size of the initialized population
     public UpperBoundedPopulationInitializer(int numberOfIndividuals, IndividualGenerator<T> individualGenerator) {
         this.numberOfIndividuals = Math.max(numberOfIndividuals, 1);
         this.individualGenerator = individualGenerator;
@@ -20,8 +19,10 @@ public class UpperBoundedPopulationInitializer<T extends Individual> extends Pop
     @Override
     public Population<T> initialize() {
         Population<T> population = new UpperBoundedPopulation<>(0, numberOfIndividuals);
-        List<T> individuals = individualGenerator.generateIndividuals();
-        population.addAll(individuals);
+        for(int i = 0; i < numberOfIndividuals; i++) {
+            T individual = individualGenerator.generateIndividuals();
+            population.add(individual);
+        }
         return population;
     }
 }
